@@ -1,0 +1,45 @@
+22:59:40 **** Incremental Build of configuration Debug for project Traffic_Light ****
+make all 
+Building file: ../TIMER.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=1000000UL -MMD -MP -MF"TIMER.d" -MT"TIMER.o" -c -o "TIMER.o" "../TIMER.c"
+In file included from ../Libraries.h:22,
+                 from ../TIMER.c:16:
+c:/winavr-20100110/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+../TIMER.c: In function 'Timer1_setCallBackOneA':
+../TIMER.c:153: warning: function return types not compatible due to 'volatile'
+../TIMER.c: In function 'Timer1_setCallBackOneB':
+../TIMER.c:161: warning: function return types not compatible due to 'volatile'
+Finished building: ../TIMER.c
+ 
+Building target: Traffic_Light.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,Traffic_Light.map -mmcu=atmega32 -o "Traffic_Light.elf"  ./GPIO.o ./TIMER.o ./Traffic_Light.o ./app.o ./interrupt.o   
+Finished building target: Traffic_Light.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S Traffic_Light.elf  >"Traffic_Light.lss"
+Finished building: Traffic_Light.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex Traffic_Light.elf  "Traffic_Light.hex"
+Finished building: Traffic_Light.hex
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 Traffic_Light.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:    4300 bytes (13.1% Full)
+(.text + .data + .bootloader)
+
+Data:         39 bytes (1.9% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+22:59:40 Build Finished. 0 errors, 3 warnings. (took 558ms)
+
